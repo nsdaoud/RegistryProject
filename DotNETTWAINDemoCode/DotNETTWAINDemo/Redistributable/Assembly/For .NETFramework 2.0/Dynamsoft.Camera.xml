@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Dynamsoft.Camera</name>
+  </assembly>
+  <members>
+    <member name="T:Dynamsoft.Common.CamResolution">
+      <summary>
+            Defines a class of camera resolution.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.Common.CamResolution.#ctor(System.Int32,System.Int32)">
+      <summary>
+            Initialize a new instance of the CamResolution class.
+            </summary>
+      <param name="w">specific the width of camera resolution.</param>
+      <param name="h"> specific the height of camera resolution.</param>
+    </member>
+    <member name="M:Dynamsoft.Common.CamResolution.Equals(System.Object)">
+      <summary>
+            Determines whether the specified object instance are considered equal.
+            </summary>
+      <param name="obj"></param>
+      <returns>
+            True indicates success. False indicates failure. 
+            </returns>
+    </member>
+    <member name="P:Dynamsoft.Common.CamResolution.Height">
+      <summary>
+            Returns the height of resolution.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.Common.CamResolution.ToString">
+      <summary>
+            Get the width and height of the camera resolution.
+            </summary>
+      <returns>
+            return the width and height of the camera resolution.
+            </returns>
+    </member>
+    <member name="P:Dynamsoft.Common.CamResolution.Width">
+      <summary>
+            Returns the width of resolution.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.UVC.Camera">
+      <summary>
+            Defines a class providing functions for controlling the camera.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.BklightComp">
+      <summary>
+            Returns or sets the backlight compensation of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Brightness">
+      <summary>
+            Returns or sets the brightness value of the Source.
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.Close">
+      <summary>
+            Closes Data Source (a DirectShow device like a webcam).
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.ColorEnable">
+      <summary>
+            Returns or sets if enable the color mode for the webcam.
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Contrast">
+      <summary>
+            Returns or sets the contrast values of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.CurrentResolution">
+      <summary>
+            Returns or sets the camera's current resolution.
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.DisplayPropertyPage">
+      <summary>
+            Displays the property page of the webcam..
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.Dispose">
+      <summary>
+            Performas application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Exposure">
+      <summary>
+            Returns or sets the exposure of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Focus">
+      <summary>
+            Returns or sets the focus of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.FocusOnArea(System.Drawing.Rectangle)">
+      <summary>
+            Focus on a specified Area,make the Area clearer.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Gain">
+      <summary>
+            Returns or sets the gain of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Gamma">
+      <summary>
+            Returns or sets the gamma of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.GetCameraName">
+      <summary>
+            Gets the name of the currently selected camera.
+            </summary>
+      <returns>
+             Returns the name of the currently selected camera.
+            </returns>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.GrabImage">
+      <summary>
+            Grabs the image from the selected camera.
+            </summary>
+      <returns>
+            The image in bitmap format.
+            </returns>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Hue">
+      <summary>
+            Returns or sets the hue of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Iris">
+      <summary>
+            Returns or sets the iris of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="E:Dynamsoft.UVC.Camera.OnFrameCaptrue">
+      <summary>
+            This event is triggered when a frame is captured by the camera.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.Open">
+      <summary>
+            Loads the specified Source into main memory and starts its initialization. 
+            If no source is specified (no source selection function is called), it will open the default source.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Pan">
+      <summary>
+            Returns or sets the pan of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.ResizeVideoWindow(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Resizes the video window to adapt its container.
+            </summary>
+      <param name="iLeft">specifies the value(in pixel) of the left edge of the video window.</param>
+      <param name="iTop">specifies the value(in pixel) of the top edge of the video window.</param>
+      <param name="iWidth">specifies the value(in pixel) of the width of the video window.</param>
+      <param name="iHeight">specifies the value(in pixel) of the height of the video window.</param>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Roll">
+      <summary>
+            Returns or sets the roll of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.RotateVideo(Dynamsoft.UVC.Enums.EnumVideoRotateType)">
+      <summary>
+             Rotates the video which is displayed by 90,180 or 270 degrees.
+             </summary>
+      <param name="enumVideoRotateType">specifies the rotate angle on a video capture device.</param>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+             When an error occurs, please check CameraException.
+             </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Saturation">
+      <summary>
+            Returns or sets the saturation of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.Camera.SetVideoContainer(System.IntPtr)">
+      <summary>
+            Set the position of camera video display.
+            </summary>
+      <param name="windowHandle">specifies the handle of the video window.</param>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Sharpness">
+      <summary>
+            Returns or sets the sharpness of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.SupportedResolutions">
+      <summary>
+            Returns a list of supported camera resolutions.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Tilt">
+      <summary>
+            Returns or sets the tilt of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.WhiteBalance">
+      <summary>
+            Returns or sets the white balance of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.Camera.Zoom">
+      <summary>
+            Returns or sets the zoom of the Source. 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.UVC.CameraManager">
+      <summary>
+            Defines a class prodividing functions for managing the camera devices.  
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.UVC.CameraManager.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the CameraManger class.
+            </summary>
+      <param name="strCameraLicense">specifies the license.</param>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraManager.CurrentSourceName">
+      <summary>
+            Returns name of the current source(camera). 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraManager.DefaultSourceName">
+      <summary>
+            Returns name of the default source(camera). 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.CameraManager.Dispose">
+      <summary>
+            Performas application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.CameraManager.GetCameraNames">
+      <summary>
+            Returns a list of camera names. 
+            </summary>
+      <returns>
+            Camera name list.
+            </returns>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.CameraManager.SelectCamera(System.Int16)">
+      <summary>
+            Selects a camera by index.
+            </summary>
+      <param name="sCameraIndex">specifies the index of the camera in the camera list</param>
+      <returns>
+            Returns the selected camera. 
+            </returns>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.UVC.CameraManager.SelectCamera(System.String)">
+      <summary>
+            Selects a camera by it's name for image acquisition. 
+            </summary>
+      <param name="strCameraName">specifies the name of the camera</param>
+      <returns>
+            Returns the selected camera.
+            </returns>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.UVC.CameraProperty">
+      <summary>
+            Defines a class providing functions for controlling properties of camera.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraProperty.DefaultValue">
+      <summary>
+            Returns the default value of a webcam property.
+            This is a readonly property.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraProperty.IfAuto">
+      <summary>
+            Returns if the value of a webcam property is automatically set.
+            This is a readonly property.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraProperty.MaxValue">
+      <summary>
+            Returns the maximum value of a webcam property.
+            This is a readonly property.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraProperty.MinValue">
+      <summary>
+            Returns the minimum value of a webcam property.
+            This is a readonly property.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraProperty.SteppingDelta">
+      <summary>
+            Returns the stepping delta value of a webcam property.
+            This is a readonly property.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.UVC.CameraProperty.Value">
+      <summary>
+            Returns or sets the current value of a webcam property.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.UVC.Delegate.OnFrameCaptureHandler">
+      <summary>
+            Occurs when Webcam capture a frame.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.UVC.Enums.EnumCameraProperty">
+      <summary>
+            The enumeration specifies a setting an a camera.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Brightness">
+      <summary>
+            Brightness control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Contrast">
+      <summary>
+            Contrast control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Hue">
+      <summary>
+            Hue control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Stauration">
+      <summary>
+            Stauration control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Sharpness">
+      <summary>
+            Sharpness control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Gamma">
+      <summary>
+            Gamma control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.WhiteBalance">
+      <summary>
+            WhiteBalance control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.BklightComp">
+      <summary>
+            BklightComp control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Gain">
+      <summary>
+            Gain control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Zoom">
+      <summary>
+            Zoom control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Focus">
+      <summary>
+            Focus control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Exposure">
+      <summary>
+            Exposure control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Iris">
+      <summary>
+            Iris control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Pan">
+      <summary>
+            Pan control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Tilt">
+      <summary>
+            Tilt control.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumCameraProperty.Roll">
+      <summary>
+            Roll control.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.UVC.Enums.EnumVideoRotateType">
+      <summary>
+            Specifies how much a frame of camera is rotated.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumVideoRotateType.Rotate_0">
+      <summary>
+            Specifies no clockwise rotation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumVideoRotateType.Rotate_90">
+      <summary>
+            Specifies a 90-degree clockwise rotation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumVideoRotateType.Rotate_180">
+      <summary>
+            Specifies a 180-degree clockwise rotation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.EnumVideoRotateType.Rotate_270">
+      <summary>
+            Specifies a 180-degree clockwise rotation.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.UVC.Enums.ErrorCode">
+      <summary>
+            DynamicDotNetTWAIN error code.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.ErrorCode.Succeed">
+      <summary>
+            Successful.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.ErrorCode.TWCC_BUMMER">
+      <summary>
+            General error.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.ErrorCode.TWERR_GeneralError"></member>
+    <member name="F:Dynamsoft.UVC.Enums.ErrorCode.TWERR_INVALID_LICENSE">
+      <summary>
+            Invalid license.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.UVC.Enums.ErrorCode.TWERR_INDEX"></member>
+    <member name="F:Dynamsoft.UVC.Enums.ErrorCode.WEBCAM_ERROR">
+      <summary>
+            The image too big for resample.
+            </summary>
+    </member>
+  </members>
+</doc>

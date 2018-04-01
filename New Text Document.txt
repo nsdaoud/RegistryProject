@@ -1,0 +1,8 @@
+insert into [Tbl_Menu](MenuName,id_Form,id_ParentForm,toolbarname,RegistryType)  
+  values ('Create 204',null,4,'tbr204',N'?????')
+  
+  insert into [Tbl_Menu](MenuName,id_Form,id_ParentForm,toolbarname,RegistryType)  
+  values ('Send To',null,4,'tbrsendto',N'?????')
+  
+  insert into [Tbl_Menu](MenuName,id_Form,id_ParentForm,toolbarname,RegistryType)  
+  values ('Select 204',5,4,'tbrselect204',N'?????')

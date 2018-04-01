@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Dynamsoft.PDF</name>
+  </assembly>
+  <members>
+    <member name="T:Dynamsoft.PDF.ConvertResult">
+      <summary>
+            The result of parsing the PDf file.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.ConvertResult.#ctor(System.Int32,System.Drawing.Bitmap,System.Object,System.Int32)"></member>
+    <member name="P:Dynamsoft.PDF.ConvertResult.Annotations">
+      <summary>
+            The annotation data of the current page.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.ConvertResult.CurrentPage">
+      <summary>
+            The index of current page.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.ConvertResult.Image">
+      <summary>
+            The image data of current page.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.ConvertResult.PageCount">
+      <summary>
+            The total number of pages of the document.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.PDF.ErrorCode">
+      <summary>
+            Defines the error code of Dynamsoft.PDF.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumSuccess">
+      <summary>
+            Successful.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumLicenseInvalid">
+      <summary>
+            Invalid license.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumLicenseExpired">
+      <summary>
+            Expired license.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumSystemException">
+      <summary>
+            System exception
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumUnknown">
+      <summary>
+            Unknown error.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumFailedToLoadModule">
+      <summary>
+            Failed to load rasterizer module.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumFailedToGetFunction">
+      <summary>
+            Failed to get function.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumInvalidValue">
+      <summary>
+            Invalid value.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumFailedToSaveImage">
+      <summary>
+            Failed to save  image.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.ErrorCode.enumAnnoLicenseInvalid">
+      <summary>
+            Invalid annotation license.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.PDF.IConvertCallback">
+      <summary>
+            The interface is used by PDFRasterizer object to process the result of parsing the PDF file.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.IConvertCallback.LoadConvertResult(Dynamsoft.PDF.ConvertResult)"></member>
+    <member name="T:Dynamsoft.PDF.ISave">
+      <summary>
+            The interface is used by PDFCreator object to get information about the pictures that need to be saved.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.ISave.GetAnnotations(System.Int32)">
+      <summary>
+            The PDFCreator object call this API to get the Annotation object.
+            </summary>
+      <param name="iPageNumber">The index of PDF page. </param>
+      <returns></returns>
+    </member>
+    <member name="M:Dynamsoft.PDF.ISave.GetImage(System.Int32)">
+      <summary>
+            The PDFCreator object call this API to get the image.
+            </summary>
+      <param name="iPageNumber">The index of PDF page.</param>
+      <returns></returns>
+    </member>
+    <member name="M:Dynamsoft.PDF.ISave.GetPageCount">
+      <summary>
+            The PDFCreator object call this API to get the count the saved images.
+            </summary>
+      <returns></returns>
+    </member>
+    <member name="T:Dynamsoft.PDF.PDFCreator">
+      <summary>
+            Defines a class provides functions for saving images as PDF format.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFCreator.#ctor(System.String)">
+      <summary>
+            Initialize the PDF Creator component with the features to create a PDF with permissions.
+            </summary>
+      <param name="strLicense">Specifies the license.</param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Author">
+      <summary>
+            Returns or sets the name of the person who creates the PDF document.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.CompressionType"></member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.CreationDate"></member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.CreatorName">
+      <summary>
+            Returns or sets the name of the application that created the original document. It is used when the PDF document is converted from another form.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFCreator.Encrypt(System.String,System.String,System.String,System.String,Dynamsoft.PDF.Enums.EnumEncryption,Dynamsoft.PDF.Permission)">
+      <summary>
+            Adds the specified security to the selected document.
+            </summary>
+      <param name="strOutputFileName">
+            Specifies the name of the PDF files as the result.
+            </param>
+      <param name="strInputFileName">
+            Specifies the name(s) of the existing PDF files on local disk to be merged.
+            </param>
+      <param name="ownerPassword">
+            Specifies the owner password of the new PDF file.
+            </param>
+      <param name="userPassword">
+            Specifies the user password of the new PDF file.
+            </param>
+      <param name="encryption">
+            Specifies encryption of the new PDF file.
+            </param>
+      <param name="permission">
+            Specifies permission of the new PDF file.
+            </param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.JPEGQuality">
+      <summary>
+            Returns or sets the quality of the JPEG file.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Keywords">
+      <summary>
+            Returns or sets the keywords associated with the PDF document.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Margin">
+      <summary>
+            Returns or sets the margin of the PDF document.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFCreator.Merge(System.String,System.String[])">
+      <summary>
+            Merges PDF files on disk and save the merged document to a new file.
+            </summary>
+      <param name="strOutputFileName">
+            Specifies the name of the PDF files as the result.
+            </param>
+      <param name="strInputFileName">
+            Specifies the name(s) of the existing PDF files on local disk to be merged.
+            </param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.ModifiedDate">
+      <summary>
+            Returns or sets the date when the PDF document is last modified.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.PageSize"></member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Producer">
+      <summary>
+            Returns or sets the name of the application that converted the PDF document from its native.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFCreator.Save(Dynamsoft.PDF.ISave,System.String)">
+      <summary>
+            Saves image(s) as a PDF file.
+            </summary>
+      <param name="iSave">
+            The interface with the image information.
+            </param>
+      <param name="strFileName">
+            String strFileName:the name of the Multi-Page PDF file to be saved. It should be a local path on the local disk.
+            </param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFCreator.SaveAsBytes(Dynamsoft.PDF.ISave)">
+      <summary>
+            Saves image(s) as a Byte file.
+            </summary>
+      <param name="iSave">
+            The interface with the image information.
+            </param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Subject">
+      <summary>
+            Returns or sets the subject of the PDF document.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Title">
+      <summary>
+            Returns or sets the title of the PDF document.
+            </summary>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFCreator.Version"></member>
+    <member name="T:Dynamsoft.PDF.PDFRasterizer">
+      <summary>
+            Defines a class provides functions for converting PDF file to images.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFRasterizer.#ctor(System.String)">
+      <summary>
+            Initialize the PDF Rasterizer component with features to convert PDF to images.
+            </summary>
+      <param name="strLicense">Specifies the license.</param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.PDFRasterizer.ConvertMode">
+      <summary>
+            Returns or sets the convert mode. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFRasterizer.ConvertToImage(System.Byte[],System.String,System.Single,Dynamsoft.PDF.IConvertCallback)">
+      <summary>
+            Converts a byte array of a PDF file to image.
+            </summary>
+      <param name="bytes">The byte array of a PDF file to be converted.</param>
+      <param name="strPassword">The password of the PDF.</param>
+      <param name="fResolution">Specifies the output image resolution.</param>
+      <param name="callback">The callback function.</param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.PDF.PDFRasterizer.ConvertToImage(System.String,System.String,System.Single,Dynamsoft.PDF.IConvertCallback)">
+      <summary>
+            Converts a local PDF file to image.
+            </summary>
+      <param name="strFilePath">The name of the PDF to be converted. It should be the absolute path of the PDF on the local disk.</param>
+      <param name="strPassword">The password of the PDF.</param>
+      <param name="fResolution">Specifies the output image resolution.</param>
+      <param name="callback">The callback function.</param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.PDF.Permission">
+      <summary>
+            A class of PDF Permission.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.Permission.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+      <summary>
+            Specifies each permission for the PDF.
+            </summary>
+      <param name="bCanPrint">
+            Specifies if can be printed.
+            </param>
+      <param name="bCanCopy">
+            Specifies if can be copied.
+            </param>
+      <param name="bCanChange">
+            Specifies if can be changed.
+            </param>
+      <param name="bCanaddNotes">
+            Specifies if can add notes.
+            </param>
+      <param name="bCanFillFields">
+            Specifies if can fill fields.
+            </param>
+      <param name="bCanCopyAccess">
+            Specifies if can copy access.
+            </param>
+      <param name="bCanAssemble">
+            Specifies if assemble.
+            </param>
+      <param name="bCanPrintFull">
+            Specifies if can print full.
+            </param>
+      <exception cref="T:Dynamsoft.PDF.RasterizerException">
+            When an error occurs, please check RasterizerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanAddNotes">
+      <summary>
+            Returns or sets if notes can be added in the PDF. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanAssemble">
+      <summary>
+            Returns or sets if the PDF is assemble. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanChange">
+      <summary>
+            Returns or sets if the PDF can be changed. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanCopy">
+      <summary>
+            Returns or sets if the PDF can be copied. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanCopyAccess">
+      <summary>
+            Returns or sets if the copy access is valid in the PDF. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanFillFields">
+      <summary>
+            Returns or sets if the filelds can be filled in the PDF. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanPrint">
+      <summary>
+            Returns or sets if the PDF can be printed. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Permission.CanPrintFull">
+      <summary>
+            Returns or sets if the PDF can be print full. 
+            </summary>
+      <exception cref="!:Dynamsoft.Camera.CameraException">
+            When an error occurs, please check CameraException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.PDF.Annotation.AnnotationData">
+      <summary>
+            Defines the dynamsoft annotation class. 
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.Annotation.AnnotationData.#ctor"></member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.AnnotationType">
+      <summary>
+            Returns or sets the annotation type. To use the property, the property MouseShape should be set to false.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.CreationTime">
+      <summary>
+            Returns or sets the time when the annotation is created.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.Description">
+      <summary>
+            Returns or sets the description of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.EndPoint">
+      <summary>
+            Returns or sets the right-bottom coordinate of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.FillColor">
+      <summary>
+            Return or sets the fill color and transparency for the area inside the annotation.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.FontType"></member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.GUID">
+      <summary>
+            Returns or sets the GUID of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.Location">
+      <summary>
+            Returns the left-top coordinate of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.ModifiedTime">
+      <summary>
+            Returns or sets the time when the annotation is last modified.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.Name">
+      <summary>
+            Returns or sets the name of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.PenColor">
+      <summary>
+            Return or sets the color of the pen for drawing the annotation rectanle/ellipse/line. This property is only valid when the annotation type is NOT 2(Text).
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.PenWidth">
+      <summary>
+            Returns or sets the width of the pen for drawing the annotation rectangle/ellipse/line. This property is only valid when the annotation type is NOT 2(Text).
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.Selected">
+      <summary>
+            Returns or sets if the annotation is selected.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.Size">
+      <summary>
+            Returns or sets the size of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.StartPoint">
+      <summary>
+            Returns or sets the left-top coordinate of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.TextContent">
+      <summary>
+            Returns or sets the content of the annotation text.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.TextRotateType">
+      <summary>
+            Returns or sets the rotate angle of the annotation text.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnotationData.UserName">
+      <summary>
+            Returns or sets the user name of the annotation.
+            </summary>
+      <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.PDF.Annotation.AnnoTextFont">
+      <summary>
+            Defines a class getting or setting the propeties of text annotation font type.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.Annotation.AnnoTextFont.#ctor"></member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnoTextFont.Name"></member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnoTextFont.Size"></member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnoTextFont.Style"></member>
+    <member name="P:Dynamsoft.PDF.Annotation.AnnoTextFont.TextColor"></member>
+    <member name="T:Dynamsoft.PDF.Common.Margin">
+      <summary>
+            stores a set of four integers that represent the location and size of a rect.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.PDF.Common.Margin.#ctor(System.Single,System.Single,System.Single,System.Single)"></member>
+    <member name="P:Dynamsoft.PDF.Common.Margin.Bottom">
+      <summary>
+            Gets the x-coorindate of the bottom-right corner of the rect.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.Common.Margin.Left">
+      <summary>
+            Gets the x-coorindate of the upper-left corner of the rect.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.Common.Margin.Right">
+      <summary>
+            Gets the y-coorindate of the bottom-right corner of the rect.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.PDF.Common.Margin.Top">
+      <summary>
+            Gets the y-coorindate of the upper-left corner of the rect.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.PDF.Enums.AnnotationType"></member>
+    <member name="F:Dynamsoft.PDF.Enums.AnnotationType.enumNone"></member>
+    <member name="F:Dynamsoft.PDF.Enums.AnnotationType.enumPointer"></member>
+    <member name="F:Dynamsoft.PDF.Enums.AnnotationType.enumText"></member>
+    <member name="F:Dynamsoft.PDF.Enums.AnnotationType.enumLine"></member>
+    <member name="F:Dynamsoft.PDF.Enums.AnnotationType.enumRectangle"></member>
+    <member name="F:Dynamsoft.PDF.Enums.AnnotationType.enumEllipse"></member>
+    <member name="T:Dynamsoft.PDF.Enums.EnumCompressionType">
+      <summary>
+            PDF file compression type.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumCompressionType.enumAutoEncode">
+      <summary>
+            Auto mode.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumCompressionType.enumCCITTFax4Encode">
+      <summary>
+            CCITT Group 4 fax encoding.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumCompressionType.enumFlateEncode">
+      <summary>
+            flate encoding.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumCompressionType.enumJPEGEncode">
+      <summary>
+            JPEG encoding.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.PDF.Enums.EnumConvertMode"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumConvertMode.enumCM_RENDERALL">
+      <summary>
+            All the content in the target PDF file will converted in a set resolution in the mode.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumConvertMode.enumCM_AUTO">
+      <summary>
+            With this mode, the PDF module will auto-detect the content of each page in the target PDF file.For a page that is itself an image
+            the add-on will load it directly with its original resolution. 
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.PDF.Enums.EnumEncryption"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumEncryption.enum40bit_RC4_encryption">
+      <summary>
+            40-bit RC4 encryption.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumEncryption.enum128bit_RC4_encryptioon">
+      <summary>
+            128-bit RC4 encryption. 
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumEncryption.enum128bit_AES_encryption">
+      <summary>
+            128-bit AES encryption.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumEncryption.enum256bit_AES_encryption">
+      <summary>
+            256-bit AES encryption.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.PDF.Enums.EnumPageSize">
+      <summary>
+            PDF Page Size
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.ImageSize"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A0"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A1"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A2"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A3"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A4"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A5"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A6"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A7"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A8"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A9"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.A10"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B0"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B1"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B2"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B3"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B4"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B5"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B6"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B7"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B8"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B9"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.B10"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Letter"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Note"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Legal"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Tabloid"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Executive"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Postcard"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Arch_A"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Arch_B"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Arch_C"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Arch_D"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Arch_E"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.FLSA">
+      <summary>
+            American Foolscap format
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.FLSE">
+      <summary>
+            European Foolscap format
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.HALFLETTER">
+      <summary>
+            halfletter format
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize._11X17"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.ID_1">
+      <summary>
+            ISO 7810 ID-1 format (85.60 x 53.98 mm or 3.370 x 2.125 inch)
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.ID_2">
+      <summary>
+            ISO 7810 ID-2 format (A7 rotated)
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.ID_3">
+      <summary>
+            ISO 7810 ID-3 format (B7 rotated)
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Ledger"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Crown_quarto"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Large_crown_quarto"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Demy_quarto"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Royal_quarto"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Crown_octavo"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Large_crown_octavo"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Demy_octavo"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Royal_octavo"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Small_paperback"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Penguin_small_paperback"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumPageSize.Penguin_large_paperback"></member>
+    <member name="T:Dynamsoft.PDF.Enums.EnumVersion">
+      <summary>
+            PDF file version.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumVersion.enumVersion_1_2"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumVersion.enumVersion_1_3"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumVersion.enumVersion_1_4"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumVersion.enumVersion_1_5"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumVersion.enumVersion_1_6"></member>
+    <member name="F:Dynamsoft.PDF.Enums.EnumVersion.enumVersion_1_7"></member>
+    <member name="T:Dynamsoft.PDF.Enums.TextRotateType">
+      <summary>
+            Rotate text annotaion
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.PDF.Enums.TextRotateType.Rotate0"></member>
+    <member name="F:Dynamsoft.PDF.Enums.TextRotateType.Rotate90"></member>
+    <member name="F:Dynamsoft.PDF.Enums.TextRotateType.Rotate180"></member>
+    <member name="F:Dynamsoft.PDF.Enums.TextRotateType.Rotate270"></member>
+  </members>
+</doc>

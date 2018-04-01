@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Dynamsoft.Forms.Viewer</name>
+  </assembly>
+  <members>
+    <member name="T:Dynamsoft.Forms.Annotation">
+      <summary>
+            Defines a class provides functions for managing the  annotations on viewer. 
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.Forms.Annotation.FillColor">
+      <summary>
+             Returns or sets the fill color and transparency for the area inside the annotation rectangle/ellipse. This property is only valid when the annotation type is NOT 2(Text).
+             </summary>
+      <exception cref="!:Dynamsoft.Viewer.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+    </member>
+    <member name="E:Dynamsoft.Forms.Annotation.OnAnnotationCreated">
+      <summary>
+            This event is triggered when an annotation is created.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.Annotation.OnAnnotationDeselected">
+      <summary>
+            This event is triggered when one or more annotations is deselected.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.Annotation.OnAnnotationMoved">
+      <summary>
+            This event is triggered when an annotation is moved.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.Annotation.OnAnnotationResized">
+      <summary>
+            This event is triggered when an annotation is resized.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.Annotation.OnAnnotationSelected">
+      <summary>
+            This event is triggered when an annotation is selected.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.Annotation.OnAnnotationTextChanged">
+      <summary>
+            This event is triggered when the text in an annotation is changed.
+            </summary>
+    </member>
+    <member name="P:Dynamsoft.Forms.Annotation.Pen">
+      <summary>
+             Returns or sets the color and width of the pen for drawing the annotation rectangle/ellipse/line. This property is only valid when the annotation type is NOT 2(Text).
+             </summary>
+      <exception cref="!:Dynamsoft.Viewer.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.Annotation.TextColor">
+      <summary>
+            Returns or sets the color for the annotation text. This property is only valid when the annotation type is set to 2(Text).
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.Annotation.TextFont">
+      <summary>
+            Returns or sets the font of the annotation text. This property is only valid when the annotation type is set to 2(Text).
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.Annotation.Type">
+      <summary>
+            Returns or sets the annotation type. To use the property, the property MouseShape should be set to false.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.Forms.DSViewer">
+      <summary>
+            Defines a class providing functions for managing image viewer.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.#ctor"></member>
+    <member name="P:Dynamsoft.Forms.DSViewer.AllowMultiSelect">
+      <summary>
+            Returns or sets whether multiple selection is supported. This property is invalid when the view mode is set to -1 by -1 or 1 by 1.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.Annotation">
+      <summary>
+            Gets the annotation object.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.BackgroundColor">
+      <summary>
+            Returns or sets the background color of the main control. It is a value specifying the 32-bit ARGB value.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.Bind(Dynamsoft.Core.ImageCore)">
+      <summary>
+            Binds Viewer module with ImageCore module.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.BorderStyle">
+      <summary>
+            Returns or sets the border style.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.ClearSelectionRect(System.Int16)">
+      <summary>
+            Clears the selected area on the specified image in buffer. 
+            </summary>
+      <param name="sImageIndex">Specifies the index of the image in buffer.</param>
+      <returns>Returns a boolean value that indicates whether the operation succeeds or not.</returns>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.CurrentSelectedImageIndicesInBuffer">
+      <summary>
+            Returns or sets current selected image indices in buffer.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.EnableInteractiveZoom">
+      <summary>
+            Returns or sets whether the user can zoom the image using hot key.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.EnableKeyboardInteractive">
+      <summary>
+            Returns or sets whether or not responds to keyboard events. The events here mean those defined in the dll. For example, navigate to the next image
+            when the "Right" key is pressed.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.FitWindowType">
+      <summary>
+            Returns or sets whether to resize the image to fit the image to the width or height of window. To use the property,the view mode should be set to -1 by -1. 
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.GetSelectionRect(System.Int16)">
+      <summary>
+            Gets the selected area on the specified image in buffer.
+            </summary>
+      <param name="sImageIndex">Specifies the index of the image in buffer.</param>
+      <returns>Returns a Rectangle value that indicates the selected area. Rectangle.Empty means that no area is selected on the specified index image.</returns>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.GetViewMode(System.Int16@,System.Int16@)">
+      <summary>
+            Gets the view mode that images are displayed in the viewer.
+            </summary>
+      <param name="sHorizontalImageCount">the short number for the columns can be displayed in the viewer.  </param>
+      <param name="sVerticalImageCount">the short number for the rows can be displayed in the viewer.</param>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.IfFitWindow">
+      <summary>
+             Returns or sets whether to resize the image to fit the size of window when the view mode is set to -1 by -1. 
+             </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+             When an error occurs, please check ViewerException.
+             </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.IfPrintAnnotations">
+      <summary>
+            Returns or sets whether print annotations when calling print method.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.ImageMargin">
+      <summary>
+            Returns or sets the margin between images when multiple images are displayed in the viewer.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.MouseShape">
+      <summary>
+            Returns or sets the shape of the mouse.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnImageAreaDeselected">
+      <summary>
+            This event is triggered when the selected area of the specified image is deselected.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnImageAreaSelected">
+      <summary>
+            This event is triggered when an area of the specified image is selected.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnMouseClick">
+      <summary>
+            This event is triggered when the mouse clicks on an image.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnMouseDoubleClick">
+      <summary>
+            This event is triggered when the mouse double clicks on an image.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnMouseMove">
+      <summary>
+            This event is triggered when the mouse moves onto an image.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnMouseRightClick">
+      <summary>
+            This event is triggered when the mouse right clicks on an image.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnTopImageInTheViewChanged">
+      <summary>
+            This event is triggered when the current top image displayed in the viewer is changed and the view mode is NOT set to -1 by -1.
+            </summary>
+    </member>
+    <member name="E:Dynamsoft.Forms.DSViewer.OnViewerKeyDown">
+      <summary>
+            The event is triggered when the keyborad button is pressed.
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.Picture(System.Int16)">
+      <summary>
+            Returns the picture object of the image of a specified index in buffer.
+            </summary>
+      <param name="sIndex">specifies the index of the image in buffer. The index is 0-based</param>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.Print">
+      <summary>
+            Shows the GUI of Image Printer with the default printer settings.
+            </summary>
+      <returns>
+            Boolean.
+            True indicates success. False indicates failure. 
+            </returns>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.Print(System.Drawing.Printing.PrinterSettings)">
+      <summary>
+            Shows the GUI of Image Printer with custom printer settings.
+            </summary>
+      <param name="printerSettings">Custom printer settings</param>
+      <returns>
+            Boolean.
+            True indicates success. False indicates failure. 
+            </returns>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.SelectionImageBorderColor">
+      <summary>
+            Returns or sets the border color of the selected image. It is a value specifying the 32-bit ARGB value.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.SelectionRectAspectRatio">
+      <summary>
+            Returns or sets the selection rectangle aspect ratio. The ratio refers to width/height (e.g. to keep width/height = 3/2, please set the ratio to 1.5). 
+            This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please checkViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.SetSelectionRectPosition(System.Int16,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Programmatically selects an area or resizes the selection rectangle. 
+            Note: To enable this function, MouseShape property should be set to false.
+            </summary>
+      <param name="sImageIndex">Specifies the index of the image in buffer.</param>
+      <param name="iLeft">The X axis of the left border.</param>
+      <param name="iTop">The Y axis of the top border.</param>
+      <param name="iRight">The X axis of the right border.</param>
+      <param name="iBottom">The Y axis of the bottom border.</param>
+      <returns>
+            Returns a boolean value that indicates whether the operation succeeds or not.
+            </returns>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.Forms.DSViewer.SetViewMode(System.Int16,System.Int16)">
+      <summary>
+            Sets the view mode that images are displayed in the viewer. You can use this method to display multiple images in the viewer.
+            </summary>
+      <param name="sHorizontalImageCount">Specifies how many columns can be displayed in the viewer.</param>
+      <param name="sVerticalImageCount">Specifies how many rows can be displayed in the viewer.</param>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.VScrollBar">
+      <summary>
+            Indicates whether the vertical scroll bar is visible when the images are larger than the page size.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.Forms.DSViewer.Zoom">
+      <summary>
+            Returns or sets zoom factor for the current image. Please set the property when the view mode is set to -1 by -1. This is a runtime property.
+            </summary>
+      <exception cref="!:Dynamsoft.Viewer.ViewerException">
+            When an error occurs, please check ViewerException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnAnnotationCreatedHandler">
+      <summary>
+            Occurs when an annotation is created.
+            </summary>
+      <param name="annotationGuids">The guid of the created annotation object.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnAnnotationDeselectedHandler">
+      <summary>
+            Occurs when one or more annotations is deselected.
+            </summary>
+      <param name="annotationGuids">The guid of the deselected annotation object.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnAnnotationMovedHandler">
+      <summary>
+            Occurs when an annotation is moved. 
+            </summary>
+      <param name="annotationGuids">The guid of the moved annotation object.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnAnnotationResizedHandler">
+      <summary>
+            Occurs when an annotation is resized.
+            </summary>
+      <param name="annotationGuids">The guid of the resized annotation</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnAnnotationSelectedHandler">
+      <summary>
+            Occurs when annotaions is selected.
+            </summary>
+      <param name="annotationGuids">The guid of the selected annotations object.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnAnnotationTextChangedHandler">
+      <summary>
+            Occurs when text in an annotation is changed.
+            </summary>
+      <param name="annotationGuids">The guid of the text annotation.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnImageAreaDeselectedHandler">
+      <summary>
+            Occurs when the selected area of the specified image is deselected and the value of the <see cref="!:Dynamsoft.Form.Interface.ITwain.MouseShape" /> property is set to false.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnImageAreaSelectedHandler">
+      <summary>
+            Occurs when an area of the specified image is selected and the value of the <see cref="!:Dynamsoft.Form.Interface.ITwain.MouseShape" /> property is set to false.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+      <param name="left">The long point number for the left side of the rectangle are the mouse selects.</param>
+      <param name="top">The long point number for the top side of the rectangle are the mouse selects.</param>
+      <param name="right">The long point number for the right side of the rectangle are the mouse selects.</param>
+      <param name="bottom">The long point number for the bottom side of the rectangle are the mouse selects.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnMouseClickHandler">
+      <summary>
+            Occurs when the mouse clicks on an image.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnMouseDoubleClickHandler">
+      <summary>
+            Occurs when the mouse double clicks on an image.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnMouseMoveHandler">
+      <summary>
+            Occurs when the mouse moves onto an image.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnMouseRightClickHandler">
+      <summary>
+            Occurs when the mouse right clicks on an image.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnMouseRightClickHandlerEx">
+      <summary>
+            Occurs when the mouse right clicks on an image.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+      <param name="args">Provide data for OnMouseRightClick event.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnTopImageInTheViewChangedHandler">
+      <summary>
+            Occurs when the current top image displayed in Dynamic .Net TWAIN is changed and the view mode is NOT set to -1 by -1.
+            </summary>
+      <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+    </member>
+    <member name="T:Dynamsoft.Forms.Delegate.OnViewerKeyDownHandler">
+      <summary>
+            Occurs when the user clicks on the "Close" button of the Source's user interface.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.Forms.Enums.EnumAnnotationType">
+      <summary>
+            Annotation type.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumAnnotationType.enumNone"></member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumAnnotationType.enumPointer"></member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumAnnotationType.enumText">
+      <summary>
+            Text annotation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumAnnotationType.enumLine">
+      <summary>
+            Line annotation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumAnnotationType.enumRectangle">
+      <summary>
+            Rectangle annotation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumAnnotationType.enumEllipse">
+      <summary>
+            Ellipse annotation.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.Forms.Enums.EnumFitWindowType">
+      <summary>
+            FitWindow type.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumFitWindowType.enumFitWindow">
+      <summary>
+            Fit the image to both the width and height of the viewer.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumFitWindowType.enumFitWindowHeight">
+      <summary>
+            Fit the image to the height of the viewer.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumFitWindowType.enumFitWindowWidth">
+      <summary>
+            Fit the image to the width of the viewer.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.Forms.Enums.EnumTextRotate">
+      <summary>
+            Rotate text annotaion
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumTextRotate.Rotate0"></member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumTextRotate.Rotate90"></member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumTextRotate.Rotate180"></member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumTextRotate.Rotate270"></member>
+    <member name="T:Dynamsoft.Forms.Enums.EnumWndBorderStyle">
+      <summary>
+            Image window border style.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumWndBorderStyle.None">
+      <summary>
+            No border.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumWndBorderStyle.SingleFlat">
+      <summary>
+            Flat border.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.EnumWndBorderStyle.Single3D">
+      <summary>
+            3D border.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.Forms.Enums.ErrorCode">
+      <summary>
+            DynamicDotNetTWAIN error code.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.Succeed">
+      <summary>
+            Successful.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWCC_BUMMER">
+      <summary>
+            General error.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWCC_BADVALUE">
+      <summary>
+            Data parameter out of supported range. 
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_GeneralError">
+      <summary>
+             General error.
+             </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_CANCEL">
+      <summary>
+            User cancelled the operation.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_INDEX">
+      <summary>
+            Invalid index.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_VALUE">
+      <summary>
+            Invalid value.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_BADPARAMETER">
+      <summary>
+            Data parameter out of supported range. 
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_NOTSUPPORTIMAGE">
+      <summary>
+            This image format is not supported.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_INVALIDPRINTER">
+      <summary>
+            Invalid image index. Original image does't exist.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.Forms.Enums.ErrorCode.TWERR_PRINT_NO_PAGE">
+      <summary>
+            There is no page to be printed.
+            </summary>
+    </member>
+  </members>
+</doc>

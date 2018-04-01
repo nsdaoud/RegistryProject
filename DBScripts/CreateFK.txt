@@ -1,0 +1,45 @@
+ALTER TABLE Sijjel09022018.dbo.Tbl_CompleteRegistry with nocheck
+ADD CONSTRAINT FK_CompleteRegistry_Tbl_Registry
+FOREIGN KEY (id_Registry) REFERENCES Sijjel09022018.dbo.Tbl_Registry(id_Registry);
+
+ALTER TABLE Sijjel09022018.dbo.Tbl_CompleteRegistry with nocheck
+ADD CONSTRAINT FK_CompleteRegistry_Tbl_204Registry
+FOREIGN KEY ([id_204Registry]) REFERENCES Sijjel09022018.dbo.Tbl_204Registry([id_204Registry]);
+
+ALTER TABLE dbo.Tbl_CompleteRegistry with nocheck
+ADD CONSTRAINT FK_CompleteRegistry_Tbl_User
+FOREIGN KEY (id_User2) REFERENCES dbo.Tbl_User(id_User);
+
+
+ALTER TABLE dbo.Tbl_CompleteRegistry with nocheck
+ADD CONSTRAINT FK_PaperSource_CompleteRegistry
+FOREIGN KEY (id_UserTransactions) REFERENCES dbo.Tbl_PaperSource(id_PaperSource);
+
+ALTER TABLE dbo.Tbl_CompleteRegistry with nocheck
+ADD CONSTRAINT FK_DeliveredFor_CompleteRegistry
+FOREIGN KEY (id_DeliveredFor) REFERENCES dbo.Tbl_PaperSource(id_PaperSource);
+
+
+ALTER TABLE dbo.Tbl_Registry with nocheck
+ADD CONSTRAINT FK_Users_Tbl_Registry
+FOREIGN KEY (id_User2) REFERENCES dbo.Tbl_User(id_User)
+ ON DELETE CASCADE    
+    ON UPDATE CASCADE;
+
+	ALTER TABLE dbo.Tbl_Registry with nocheck
+ADD CONSTRAINT FK_Users_Registry
+FOREIGN KEY (id_User) REFERENCES dbo.Tbl_User(id_User);
+
+	ALTER TABLE dbo.Tbl_Registry with nocheck
+ADD CONSTRAINT FK_PaperSource_Registry
+FOREIGN KEY (id_PaperSource) REFERENCES dbo.Tbl_PaperSource(id_PaperSource);
+
+
+--select id_Registry
+--from Tbl_Registry
+--order by id_Registry asc
+--where id_Registry not in (
+select id_Registry from Tbl_CompleteRegistry 
+where id_Registry is null
+order by id_Registry asc
+--)

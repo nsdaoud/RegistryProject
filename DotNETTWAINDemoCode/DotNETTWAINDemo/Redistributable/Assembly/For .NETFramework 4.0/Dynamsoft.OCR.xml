@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Dynamsoft.OCR</name>
+  </assembly>
+  <members>
+    <member name="T:Dynamsoft.OCR.ErrorCode">
+      <summary>
+            Defines the error code of Dynamsoft.PDF.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumSuccess">
+      <summary>
+            Successful.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumLicenseInvalid">
+      <summary>
+            Invalid license.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumLicenseExpired">
+      <summary>
+            Expired license.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumSystemException">
+      <summary>
+            System exception.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumUnknown">
+      <summary>
+            Unknown error.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumFailedToLoadModule">
+      <summary>
+            Failed to load OCR module.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumFailSaveAsTiff">
+      <summary>
+            Failed to save as tiff.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.ErrorCode.enumInvalidValue">
+      <summary>
+            Invalid value.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.OCR.Tesseract">
+      <summary>
+            Defines a class provides functions for recognizing text. 
+            </summary>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.#ctor(System.String)">
+      <summary>
+            Initialize the component with features to do OCR.
+            </summary>
+      <param name="strLicense">Specifies the license. </param>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultLineCount(System.Int32,System.Int32)">
+      <summary>
+            Returns how many lines there are in the OCR result for a specified page in a pageset.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <returns>Int</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultLineRect(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Returns the coordinates for the rectangle that contains a specified line in a specified page of a pageset.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <param name="iPageIndex">Specifies the index of the page in the pageset.</param>
+      <param name="iLineIndex">Specifies the index of the line in the page.</param>
+      <returns>The string in the format of "left,top,right,bottom". For example:"12,25,200,50".</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultPageCount(System.Int32)">
+      <summary>
+            Returns the number of pages that are recognized in a specified pageset.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <returns>Int</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultPageSetCount">
+      <summary>
+            Returns how many pagesets there are in the OCR result.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultWordsCount(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Returns how many words there are in a specified line in a specified page of a pageset.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <param name="iPageIndex">Specifies the index of the page in the pageset.</param>
+      <param name="iLineIndex">Specifies the index of the line in the page.</param>
+      <returns>Int</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultWordsFontName(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Returns the font name of a specified word in the OCR result.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <param name="iPageIndex">Specifies the index of the page in the pageset.</param>
+      <param name="iLineIndex">Specifies the index of the line in the page.</param>
+      <param name="iWordsIndex">Specifies the index of the word in the line.</param>
+      <returns>String</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultWordsFontSize(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Returns the font size of a specified word in the OCR result.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <param name="iPageIndex">Specifies the index of the page in the pageset.</param>
+      <param name="iLineIndex">Specifies the index of the line in the page.</param>
+      <param name="iWordsIndex">Specifies the index of the word in the line.</param>
+      <returns>Int</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetResultWordsRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Returns the coordinates for the rectangle that contains a specified word.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <param name="iPageIndex">Specifies the index of the page in the pageset.</param>
+      <param name="iLineIndex">Specifies the index of the line in the page.</param>
+      <param name="iWordsIndex">Specifies the index of the word in the line.</param>
+      <returns>The string in the format of "left,top,right,bottom". For example:"12,25,200,50".</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.GetRseultWordsText(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+             Returns the text of a specified word in the OCR result.
+            </summary>
+      <param name="iPageSetIndex">Specifies the index of the selected pageset.</param>
+      <param name="iPageIndex">Specifies the index of the page in the pageset.</param>
+      <param name="iLineIndex">Specifies the index of the line in the page.</param>
+      <param name="iWordsIndex">Specifies the index of the word in the line.</param>
+      <returns>String</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.Language">
+      <summary>
+            Returns or sets the language string. The language is (usually) an ISO 639-3 string, the default value is "eng".
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.NumericOnly">
+      <summary>
+            Returns or sets whether to get the result in numbers only.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.PageSetMode">
+      <summary>
+            Returns or sets the possible modes for page layout analysis.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.PdfFontSize">
+      <summary>
+            Returns or sets the size for the PDF font.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.Recognize(System.Collections.Generic.List{System.Drawing.Bitmap})">
+      <summary>
+            Does OCR with a list of the images and return PDF stream or ASCII string.
+            </summary>
+      <param name="listBits">Specifies the list of images in buffer. The format is bitmap. </param>
+      <returns>Non-NULL indicates success. NULL indicates failure. Returned format is specified by ResultFormat.</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.Recognize(System.Drawing.Bitmap)">
+      <summary>
+            Does OCR with the bitmap of the images and return PDF stream or ASCII string.
+            </summary>
+      <param name="bit">Specifies the bitmap of images in buffer. </param>
+      <returns>Non-NULL indicates success. NULL indicates failure. Returned format is specified by ResultFormat.</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.Recognize(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Does zonal OCR with a list of the images and return PDF stream or ASCII string.
+            </summary>
+      <param name="bit">Specifies the bitmap of images in buffer. </param>
+      <param name="iLeft">Specifies the left edge of the OCR rectangle. </param>
+      <param name="iTop">Specifies the top edge of the OCR rectangle. </param>
+      <param name="iRight">Specifies the right edge of the OCR rectangle. </param>
+      <param name="iBottom">Specifies the bottom edge of the OCR rectangle. </param>
+      <returns>Non-NULL indicates success. NULL indicates failure. Returned format is specified by ResultFormat.</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="M:Dynamsoft.OCR.Tesseract.Recognize(System.String[])">
+      <summary>
+            Does OCR with the image of a specified filenames.
+            </summary>
+      <param name="aryImageName">Specifies the the image with a specified filenames. </param>
+      <returns>Non-NULL indicates success. NULL indicates failure. Returned format is specified by ResultFormat property.</returns>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.ResultFormat">
+      <summary>
+            Returns or sets the OCR output format.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.TessDataPath">
+      <summary>
+            Returns or sets the tessdata path. The datapath must be the name of the parent directory of tessdata and must be ended with '/' . Any words after the last '/' will be stripped.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.UnicodeFontName">
+      <summary>
+            Returns or sets the unicode font name used in PDF file. For example, "Arial", "ArialUni".
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="P:Dynamsoft.OCR.Tesseract.UseDetectedFont">
+      <summary>
+            Returns or sets whether use the detected font.
+            </summary>
+      <exception cref="T:Dynamsoft.OCR.OCRException">
+            When an error occurs, please check OCRException.
+            </exception>
+    </member>
+    <member name="T:Dynamsoft.OCR.Enums.PageSetMode">
+      <summary>
+            Possible modes for page layout analysis.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_OSD_ONLY">
+      <summary>
+            Orientation and script detection only.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_AUTO_OSD">
+      <summary>
+            Automatic page segmentation with orientation and script detection. (OSD)
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_AUTO_ONLY">
+      <summary>
+            Automatic page segmentation, but no OSD, or OCR.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_AUTO">
+      <summary>
+            Fully automatic page segmentation, but no OSD. (Default)
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_SINGLE_COLUMN">
+      <summary>
+            Assume a single column of text of variable sizes.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_SINGLE_BLOCK_VERT_TEXT">
+      <summary>
+            Assume a single uniform block of vertically aligned text.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_SINGLE_BLOCK">
+      <summary>
+            Assume a single uniform block of text.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_SINGLE_LINE">
+      <summary>
+            Treat the image as a single text line.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_SINGLE_WORD">
+      <summary>
+            Treat the image as a single word.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_CIRCLE_WORD">
+      <summary>
+            Treat the image as a single word in a circle.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.PageSetMode.PSM_SINGLE_CHAR">
+      <summary>
+            Treat the image as a single character.
+            </summary>
+    </member>
+    <member name="T:Dynamsoft.OCR.Enums.ResultFormat">
+      <summary>
+            Supported OCR output format.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.ResultFormat.Text">
+      <summary>
+            Pure text ASCII string.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.ResultFormat.PDFPlainText">
+      <summary>
+            PDF plain text.
+            </summary>
+    </member>
+    <member name="F:Dynamsoft.OCR.Enums.ResultFormat.PDFImageOverText">
+      <summary>
+            PDF image over text.
+            </summary>
+    </member>
+  </members>
+</doc>
